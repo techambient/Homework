@@ -1,0 +1,6 @@
+{
+  "name": "Homework & Study Alarm",
+  "description": "Offline homework organizer with subject categorization, smart alarms, 2-minute reminders, full-screen study alerts, automated cleanup rules, and interactive bag-packing reminders.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
