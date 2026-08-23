@@ -49,11 +49,7 @@ Keep your dashboard clean without manually deleting completed homework:
 
 ## 📷 Screenshots
 
-<img src="tl.jpeg" width="100%"/>
-<img src="tp.jpeg" width="60%"/>
 <img src="pp.png" width="39%"/>
-<img src="pl.png" width="100%"/>
-<img src="foldables.jpeg" width="100%"/>
 
 ## 📸 Math-to-result OCR
 
