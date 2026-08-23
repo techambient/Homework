@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="200" src="icon.jpg" alt="Ambient Homework" align="center">
+<img width="200" src="icon.svg" alt="Ambient Homework" align="center">
 
 # Ambient Homework
 Best open source homework manager for Android devices that let you won't forget homework anymore!! 
