@@ -47,7 +47,7 @@ Keep your dashboard clean without manually deleting completed homework:
 
 ## 📚 Homework Alarm
 
-<img src="alarm.jpg" width="30%"/>
+<img src="alarm.jpg" width="60%"/>
 
 
 ## ☕ Support
