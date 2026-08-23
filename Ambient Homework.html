@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ambient Homework — Never Forget Homework Again</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #040508;
+  --panel: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --txt: #ffffff;
+  --muted: #b6bfca;
+  --a: #3b82f6;
+  --b: #7c3aed;
+  --c: #06b6d4;
+  --nav-bg: rgba(4, 5, 8, 0.65);
+  --hero-overlay: linear-gradient(to bottom, rgba(4, 5, 8, 0.2), rgba(4, 5, 8, 0.92));
+  --gradient-text: linear-gradient(135deg, #ffffff, #8ec5ff);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8fafc;
+    --panel: rgba(255, 255, 255, 0.7);
+    --border: rgba(0, 0, 0, 0.08);
+    --txt: #0f172a;
+    --muted: #475569;
+    --a: #2563eb;
+    --b: #6d28d9;
+    --c: #0891b2;
+    --nav-bg: rgba(248, 250, 252, 0.75);
+    --hero-overlay: linear-gradient(to bottom, rgba(248, 250, 252, 0.2), rgba(248, 250, 252, 0.92));
+    --gradient-text: linear-gradient(135deg, #0f172a, #2563eb);
+  }
+}
+
+* { box-sizing: border-box; } 
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--txt);
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, .22), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(124, 58, 237, .18), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(6, 182, 212, .18), transparent 40%);
+  filter: blur(60px);
+  z-index: -2;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 16px 5%;
+  padding-left: max(5%, env(safe-area-inset-left));
+  padding-right: max(5%, env(safe-area-inset-right));
+  padding-top: max(16px, env(safe-area-inset-top));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+
+.logo {
+  font-weight: 900;
+  letter-spacing: .5px;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.nav-tag {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('main.png') center/cover no-repeat;
+}
+
+.hero-bg:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 120px 24px 80px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 999px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 0.9rem;
+  font-weight: 500;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 7.5vw, 6.5rem);
+  margin: 20px 0;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  max-width: 850px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+.btn {
+  padding: 16px 28px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  min-height: 48px; /* Touch target minimum */
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+  }
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--a), var(--b));
+}
+
+.secondary {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--txt);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+section {
+  padding: 80px 6%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 24px;
+  padding: 28px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-6px);
+  }
+}
+
+.metric {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+/* Table Mobile Wrappers */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 480px; /* Ensures readable columns on narrow devices */
+}
+
+td, th {
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  background: rgba(255, 255, 255, 0.03);
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  padding: 60px 20px max(60px, env(safe-area-inset-bottom));
+  color: var(--muted);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+/* Phone Specific Fixes */
+@media (max-width: 640px) {
+  nav {
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: 12px;
+  }
+  
+  .nav-tag {
+    font-size: 0.75rem;
+    opacity: 0.85;
+  }
+  
+  .hero-content {
+    padding-top: 110px;
+    padding-bottom: 50px;
+  }
+  
+  .badge {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+
+  .cta {
+    flex-direction: column;
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  section {
+    padding: 50px 5%;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  td, th {
+    padding: 14px 12px;
+    font-size: 0.9rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">📖 Homework</div>
+<div class="nav-tag">Complete • Offline • Open Source</div>
+</nav>
+
+<div id="site">
+<header class="hero">
+<div class="hero-bg"></div>
+<div class="hero-content">
+<div class="badge">Best Open-source Complete Homework Manager</div>
+<h1>Never Forget<br>Homework Again</h1>
+<p class="sub">Offline complete homework manager, supports custom alarm to do homeworks &amp; more... No cloud. No ads. No tracking. Unlimited usage.</p>
+<div class="cta">
+<a class="btn primary" href="https://github.com/techambient/Homework">View on GitHub</a>
+<a class="btn secondary" href="https://github.com/techambient/Homework/releases/latest">Download Now</a>
+</div>
+</div>
+</header>
+
+<section>
+<h2 class="title">Core Advantages</h2>
+<div class="grid">
+<div class="card"><div class="metric">Alarm</div><p>Homework alarm that remind you to do homework.</p></div>
+<div class="card"><div class="metric">∞</div><p>Unlimited usage.</p></div>
+<div class="card"><div class="metric">0%</div><p>Ads, telemetry and tracking.</p></div>
+<div class="card"><div class="metric">100%</div><p>Offline &amp; local.</p></div>
+</div>
+</section>
+
+<section id="features">
+<h2 class="title">Features</h2>
+<div class="grid">
+<div class="card">⏰ Do Homework Alarm</div>
+<div class="card">🔔 2 minutes Pre-reminder before alarm</div>
+<div class="card">🎒 Put into bag reminder</div>
+<div class="card">🎬 Local &amp; 100% Offline</div>
+<div class="card">⌛ Focus Timer</div>
+<div class="card">📅 Schedule Future Homework</div>
+<div class="card">📚 Homework List Based on Subjects / Course</div>
+<div class="card">🧹 Auto Remove Done Homework from list</div>
+</div>
+</section>
+
+<section>
+<h2 class="title">Ambient Homework vs Others</h2>
+<div class="table-container">
+<table>
+<thead>
+<tr><th>Aspect</th><th>Ambient Homework</th><th>Others</th></tr>
+</thead>
+<tbody>
+<tr><td>Paid</td><td>No</td><td>Partial</td></tr>
+<tr><td>Features</td><td>Complete</td><td>Limited</td></tr>
+<tr><td>Free</td><td>100% Free</td><td>Partial</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section>
+<div class="card" style="text-align:center">
+<h2>Built for School, University &amp; Colleges</h2>
+<p style="color:var(--muted)">The best &amp; complete open-source homework manager.</p>
+</div>
+</section>
+
+<footer>
+Ambient Homework • MIT Licensed • Ambient Technologies (techambient)
+</footer>
+</div>
+
+</body>
+</html>
