@@ -45,9 +45,9 @@ Keep your dashboard clean without manually deleting completed homework:
 
 <img src="pp.png" width="39%"/>
 
-## 📸 Math-to-result OCR
+## 📚 Homework Alarm
 
-<img src="scanner.jpeg" width="30%"/>
+<img src="alarm.png" width="30%"/>
 
 
 ## ☕ Support
