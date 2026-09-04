@@ -5,6 +5,10 @@
 # Ambient Homework
 Best open source homework manager for Android devices that let you won't forget homework anymore!! 
 
+[![License](https://img.shields.io/github/license/techambient/Homework?style=for-the-badge)](LICENSE)
+[![Platform](https://img.shields.io/badge/Android-10%2B-34A853?style=for-the-badge)]()
+[![Material 3](https://img.shields.io/badge/Material%203-Expressive-4285F4?style=for-the-badge)]()
+
 <div align="left">
 
 ## 📖 Features
