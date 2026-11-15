@@ -1,5 +1,10 @@
 > [!WARNING]
-> If **no more users** download my app, use my app or star my repo by November 2026, I am **ending this project**.
+> ### 🛑 Discontinuation Notice for Ambient Homework
+> Effective January 1, 2027, at 00:00 UTC, Ambient Homework will be permanently discontinued due to low user adoption. 
+> Additionally, this repository will be archived on January 2, 2027, at 00:00 UTC.
+> If you have any questions or concerns, please reach out by opening an issue in this repository.
+> Best regards,
+> Ambient Technologies (techambient). 
 
 <div align="center">
 
